@@ -20,11 +20,14 @@ const Quote = require("./models/quote") // gebruik dit model
 //     // saved!
 //   });
 
+//use bodyparser
+app.use(bodyParser.json())
 //use routes
 app.use(quoteRoutes) 
 
+
 // connect to DB
-mongoose.connect('mongodb://AnkePe:Ih4kidshewl!@quotes-shard-00-00-sdzte.mongodb.net:27017,quotes-shard-00-01-sdzte.mongodb.net:27017,quotes-shard-00-02-sdzte.mongodb.net:27017/test?ssl=true&replicaSet=Quotes-shard-0&authSource=admin&retryWrites=true', {useNewUrlParser: true})
+mongoose.connect('mongodb+srv://AnkePe:Ih4kidshewl!@quotes-sdzte.mongodb.net/API', {useNewUrlParser: true})
 // volgende gebeurt eigenlijk vanzelf, alleen handig 
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;

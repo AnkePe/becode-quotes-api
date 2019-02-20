@@ -10,7 +10,9 @@ const Quote = require("../models/quote")
 router.get('/quotes', (req,res,next) => {
     // handlerfunctie hier
     // res.send('quotes page')
-    Quote.find()
+    Quote.find((err, quotes) => {
+        res.send(quotes)
+    }) 
 })
 
 router.get('/quotes/:id', (req,res,next) => {
@@ -29,7 +31,7 @@ router.post('/quotes', (req,res,next)=> {
         {
             quote: req.body.quote,
             author: req.body.author,
-            image: req.body.image
+            // image: req.body.image
         }
     );
     quote.save((err) => {
@@ -45,7 +47,7 @@ router.put('/quotes/:id', (req,res,next) => {
     // res.send('Got a PUT request at /quotes/:id')    
     Quote.findByIdAndUpdate(req.params.id, {$set: req.body}, (err, quote) => {
             if (err) return next(err);
-            res.send('Quote udpated.');
+            res.send('Quote updated.');
         });
     
 })
