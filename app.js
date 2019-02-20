@@ -3,6 +3,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
+require('dotenv').config()  // gebruik de env file voor uw locale gevoelige info variabelen
+
 const app = express()   // een express applicatie definieren 
 const quoteRoutes = require('./routes/quotesRoutes')  // gebruik deze routes
 const Quote = require("./models/quote") // gebruik dit model
@@ -27,8 +29,8 @@ app.use(quoteRoutes)
 
 
 // connect to DB
-mongoose.connect('mongodb+srv://AnkePe:Ih4kidshewl!@quotes-sdzte.mongodb.net/API', {useNewUrlParser: true})
-// volgende gebeurt eigenlijk vanzelf, alleen handig 
+mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true})  // MONGO_URL zit in aparte .env file
+// volgende gebeurt eigenlijk vanzelf, alleen handig om te zien of het gelukt is
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -42,10 +44,10 @@ app.get('/', (req, res) => {
 
 
 
-
+const PORT = 5000
 
 // start server helemaal onderaan
-app.listen(5000, () => {    
-    console.log('listening on 5000')
+app.listen(PORT, () => {    
+    console.log(`listening on ${PORT}`)
   })
 
