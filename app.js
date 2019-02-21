@@ -2,7 +2,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-
+// environment variabels
 require('dotenv').config()  // gebruik de env file voor uw locale gevoelige info variabelen
 
 const app = express()   // een express applicatie definieren 
@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 
 
 
-const PORT = 5000
+const PORT = process.env.PORT || 5000   // heroku kiest poort en anders is het poort 5000
 
 // start server helemaal onderaan
 app.listen(PORT, () => {    
