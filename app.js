@@ -25,7 +25,7 @@ const Quote = require("./models/quote") // gebruik dit model
 //use bodyparser
 app.use(bodyParser.json())
 
-//cross site request toelaten voor iedereen
+//cross site request toelaten voor iedereen voor je de routes gebruikt
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
