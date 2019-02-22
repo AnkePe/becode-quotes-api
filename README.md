@@ -10,9 +10,8 @@ Used technologies:
 - Heroku
 
 Endpoints:
-GET a list of all quotes | https://apifriendshipquotes.herokuapp.com/quotes
-POST a new quote | https://apifriendshipquotes.herokuapp.com/quotes
-GET one quote | https://apifriendshipquotes.herokuapp.com/quotes/:id
-
-PUT one quote | https://apifriendshipquotes.herokuapp.com/quotes/:id
-DELETE one quote | https://apifriendshipquotes.herokuapp.com/quotes/:id
+* GET a list of all quotes:  https://apifriendshipquotes.herokuapp.com/quotes
+* POST a new quote:  https://apifriendshipquotes.herokuapp.com/quotes
+* GET one quote:  https://apifriendshipquotes.herokuapp.com/quotes/:id
+* PUT one quote:  https://apifriendshipquotes.herokuapp.com/quotes/:id
+* DELETE one quote:  https://apifriendshipquotes.herokuapp.com/quotes/:id

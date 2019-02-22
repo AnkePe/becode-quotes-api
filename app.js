@@ -25,7 +25,13 @@ const Quote = require("./models/quote") // gebruik dit model
 //use bodyparser
 app.use(bodyParser.json())
 //use routes
-app.use(quoteRoutes) 
+app.use(quoteRoutes)
+//cross site request toelaten
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 
 // connect to DB
